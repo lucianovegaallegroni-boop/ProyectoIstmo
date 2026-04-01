@@ -20,6 +20,21 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: () => import('../views/AuthView.vue')
+  },
+  {
+    path: '/pillars/board-games',
+    name: 'BoardGames',
+    component: () => import('../views/Pillars/BoardGamesView.vue')
+  },
+  {
+    path: '/pillars/tcg',
+    name: 'TCG',
+    component: () => import('../views/Pillars/TCGView.vue')
+  },
+  {
+    path: '/pillars/rpgs',
+    name: 'RPGs',
+    component: () => import('../views/Pillars/RPGsView.vue')
   }
 ]
 

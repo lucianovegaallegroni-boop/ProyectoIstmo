@@ -8,6 +8,9 @@
 
         <div class="navbar__links">
           <a href="/#pillars" class="navbar__link">Categorías</a>
+          <router-link to="/pillars/board-games" class="navbar__link" active-class="navbar__link--active">Juegos de Mesa</router-link>
+          <router-link to="/pillars/tcg" class="navbar__link" active-class="navbar__link--active">Cartas TCG</router-link>
+          <router-link to="/pillars/rpgs" class="navbar__link" active-class="navbar__link--active">Juegos de Rol (RPG)</router-link>
           <a href="/#masterpiece" class="navbar__link">Exclusivos</a>
           <a href="/#location" class="navbar__link">Ubicación</a>
           <router-link to="/catalog" class="navbar__link" active-class="navbar__link--active">Catálogo</router-link>

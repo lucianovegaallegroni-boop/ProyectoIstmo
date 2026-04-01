@@ -2,7 +2,7 @@
   <section class="hero" id="hero">
     <div class="hero__bg">
       <img
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEVrphWNMo7yMCAYVXnGqozK9fAH_8WNv0IwC53hd_nT7efSLwiwC4mC9bm7aGfKqGDypK5dz410tkgXci4FxK9gs4Iirc34VpKv-9L5NIWRXIpmt3CQxbcwuO-P2FB_qpbTFSRrcywXN03Y5Fi8SKrKsG7N7hzccrUP2u8WkKxTE4Eg23i_N8i756zIFuJHhj0YNheIqeBmdgWbryAeKdRwv2xlLqoXlyDLZeDxs_NUchFkBe1I3pviga0q287YxPRafFncxZvbcd"
+        src="/pillars/tcg_card.png"
         alt="Atmospheric photo of a luxury gaming table with wooden board game pieces, soft moody lighting, and deep navy tones"
         class="hero__image"
       />

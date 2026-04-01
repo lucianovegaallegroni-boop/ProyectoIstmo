@@ -43,7 +43,7 @@ const products = [
     price: '$849.00',
     badge: 'Limited Stock',
     slug: 'emerald-drake',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuATaITIsgMtj4Moq7SiZwkpj_D-5aFPqpWg5Ffx4Ugq6XlhkJf5F0yn1H4F3qrhi3ZiK7onrN0-234QtLaRGdGiTGf5CnXyMYGLEwsx1-8F6v3yHWM5q1VQjNtBPAdLdJV6z382wRnATVMJWeDMsBlBunS1DCQoEFbLbikv8Mv0klet0mnI9sSYIaKAD8D-8uSPReu8DkfXD1y0KkyyzOwOT-teDR-b2IC1kABaSEgdOFpkIUJcX3jJ89UUSUTEe6sMbhLdmgbfz-tZ',
+    image: '/pillars/tcg_card.png',
     alt: 'Detailed pewter dragon statue with emerald glass eyes resting on a pile of decorative coins'
   },
   {
@@ -52,7 +52,7 @@ const products = [
     price: '$1,200.00',
     badge: '1 of 50',
     slug: 'noctis-set',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDH_rrayawXo3TRsBg-0agHWRRnCM_nSJnPc9nO8K76ezyoTRQa7ecIg7DRyGFd8BH-KyJCRXstuGt5v8pGxXchIlpxPXSWAe9vbjm7_hpeBEr92-XtTEO4CWs5D2YKZcmiD3hGIO7ScWO4NRAvMHVwsr8XnmoOwSmtJmqlAPfxS5JhghEzFv1Tu0jnO9d3k2SBkuitZqshW4XQNZZk-cDdVYtk7j7k-THTZ1oEKR4RVKxgc1vZVMcKyVOmAFdr5KqKjP7AEsRQ9asv',
+    image: '/pillars/tcg_card.png',
     alt: 'Luxury obsidian chess set on a backlit glass board with minimalist geometric pieces'
   },
   {
@@ -61,7 +61,7 @@ const products = [
     price: '$2,450.00',
     badge: 'Artist Proof',
     slug: 'aether-origin',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDQkwthRibwe5dyZv3_VAvXgA1kx1qUSyDL1scXjllljIWR3S8z10bFEYvbEayLAdJNgLXYb3LGtZ7rLWKYNjwfoMvY5sNZxwVlTY4QZUv9L4Hn9hyI7gHh3bCWrsWdc83AIblSLTwynxLjJmQxnWNZgxqbtvsMh3Qx5mOjtwUKvSVGfmFAr_Uo_gr2q_a64X9XYHtU8BVUMdYYLSRSdOG8Rj3t53ylt-gqRxp1Rn29pUHJU8OlPQruSglRPqW4N_h_2bIq2txsJg_4',
+    image: '/pillars/tcg_card.png',
     alt: 'Original ink illustration for a fantasy trading card featuring a celestial being'
   }
 ]

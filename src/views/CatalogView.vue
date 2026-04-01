@@ -58,7 +58,7 @@ const products = ref([
     category: 'Strategic Engine Building',
     price: '$89.00',
     badge: 'Artisan Edition',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDaHHj-cV2KiPUarzHmTuQoY0IY1pOqeg8LTv9oF-c1F-vgAwyZPbGxTEqS93hIJGJk7z8x1GXdnuvc1Vb6_cYkuxldfGzSyXYsPGt55UFOMZk_mddkcdrsFgbYxDoKvzmr6H_7GYYJo7inx1_gkuJUHaua7AdQ7oAFwnMb9pShSh8kOkU3pGMjp7YQIXeK8MuFZdqnznqRPeF9H9igcmXzTHOOXwv29PAXFx2QEu2a0zdxtEONHdk_STi-jI124zWwygI0eDC1m4Md',
+    image: '/pillars/tcg_card.png',
     alt: 'Close-up of a high-end complex board game'
   },
   {
@@ -66,7 +66,7 @@ const products = ref([
     category: 'Tactical Card Game',
     price: '$34.99',
     badge: 'Strategy Master',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDHWVJohNaqIYpvJkMus583vaNuGw2bCzYaI7aJAeD_0Pxj2LvatpidQhTPEFwE1134ppjcaPpPHNmqt2Ctn2si83NAREyPDQmzrdF4Ml6a7PBin18r9cUh5SU9PehPH1amXtf44N6sZFvXktKbl0fUC2Kv0N98dB2dX1pFjnA1jg5flYElkTNW4x-twqFeElI6pODY79DNIHf-VwVNWGKKm9YTpQzoim9rKvDhpsM3-4VHXgwz3xr5OqQRoYqr31EYayucNbI3V4-X',
+    image: '/pillars/tcg_card.png',
     alt: 'Premium textured playing cards'
   },
   {
@@ -74,7 +74,7 @@ const products = ref([
     category: 'Collectible Miniatures',
     price: '$45.00',
     badge: 'Strategy Master',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD1lVCQJIKRB1ljSz0iMKHbcPWkAKoD05n2nUuC05d53i-bzTrZkSJZcEgw0hN4d4eYHXBpVLN9W_XiKXdykUXfNVG2NDvEubKAMdHUdEFL9CergFfbKZFbYO-jxS5NDv6phX0CZepyVs3iL4NaqbrtylmmE9GnPVhm85W0u21wvAHo41tH9iRc1ha1ZfK_OHHA039sRFdwUnVE5ny6N-0l63Ujn9MLyhWB3IlQU9xUxNh1qQruI9diVOGF5Zw28HRb9vonOw1QViYG',
+    image: '/pillars/tcg_card.png',
     alt: 'Finely painted fantasy miniature figure'
   },
   {
@@ -82,7 +82,7 @@ const products = ref([
     category: 'Cooperative Adventure',
     price: '$110.00',
     badge: '',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBSygBLVmysaqBdXLI1b1dB5TcNEbmSekaiZN_7XWSvs-z57zVQjt-JVu_6AwRde1pg19YFVK3QFAXqzKOQYY0VDdcxuT_I1uPaZHEl7lJj-LNF3EdO9VQOcJIQv4kBAhwR_lYKaHQJg9XqAzouDHS7wAKPNYGA3WUCN3aeUdqmTBGKdhLSE5WiiS6ufxsy-tuPwSqYo3yNH4pnm6uPnRkIlC7G1Dwo6kBXaN8NBwSQIpn5NRtroDDACHBjS1RlvMmerHzIA4Cn_WMJ',
+    image: '/pillars/tcg_card.png',
     alt: 'Isometric view of a complex dungeon crawler'
   },
   {
@@ -90,7 +90,7 @@ const products = ref([
     category: 'Roleplaying Supplement',
     price: '$59.95',
     badge: 'Artisan Edition',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBADagPdUotzGfAa2-4okAkVv-6EOEQIuIRGG1RY4NOedoRSsJF9jXYzuv1ez_qQJis0A9KRjFS8m6i7AE3lwNSmG2NT0B5jM5dt0Kivkj4jG5XsXQ8ogOzILO_OE1NI4cyG7j4O4ToojjW1NxYZLYtGQ4g1voRa-bdxnea7NM9jMw6-DReMoa4NWHLiUyhFtMvHVKH5GciVAZC7Ga-gSeDUUi3XcHOWDaClwBaX6GqN0jAHgfDmBb62GLMAxdYMpOmIouF2J3ouYRM',
+    image: '/pillars/tcg_card.png',
     alt: 'Colorful polyhedral dice scattered across parchment'
   },
   {
@@ -98,7 +98,7 @@ const products = ref([
     category: 'Abstract Strategy',
     price: '$42.00',
     badge: '',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA_Cx8WGdm2npuMBbmHiRWViZ1AZYTAxEmxOpxlqj-NymyUjz6LH2wCSSxnYiaMRe8WTBNo6BFfB-W5S_eKGtv5DwpfHq79NSmT2X6FAL_8maMYuK14Kh3_o9MjI7GEnr9IeQlIZET6zCs67VrolmMpQKTcH8OMTjAVUGeChuL6LmxyDjmFUOZ8Ckaq5fQThBBdTQrJLpHVCemreRgbRUsObJXKi6fFIOs6jdv9AUTuK7Fmd_o88OX__Cg69JBQzvMT0aPSzxvaEzk8',
+    image: '/pillars/tcg_card.png',
     alt: 'Sleek modern minimalist board game box'
   }
 ])

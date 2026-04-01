@@ -33,7 +33,7 @@
       </div>
       <div class="location__map-wrap">
         <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOJR24Xx_DjS90uszzUh6VA67t7ZlquNI8i7Cf8BiRV3tOZLEmIE2werTZd6D34QZI05qmB4JEi8F-72S0K0fRVljFYFiIkIhdJOQK4nFXI-3bIL_funHYlB1lcz6RNm7dzhmEhRX8DFZfe2bac2E9hbGZWzBSgsxFnQoDdfOr9ltWHGhOQIAke_DR06iwm-xh8zwPPNEkTr8jJa69_ouI3T10KvYyzsvQjc7bESoqbhaIniDtvHA5HVGJqPNLBNvaNrrOGc4yv3Un"
+          src="/pillars/tcg_card.png"
           alt="Overhead street map of Istmo City North"
           class="location__map-img"
           loading="lazy"
