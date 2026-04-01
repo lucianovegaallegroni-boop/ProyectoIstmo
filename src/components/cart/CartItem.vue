@@ -18,7 +18,11 @@
       <div class="cart-item__top">
         <div class="cart-item__header">
           <h3 class="cart-item__title">{{ product.name }}</h3>
-          <button class="cart-item__delete-btn" aria-label="Remove item">
+          <button 
+            class="cart-item__delete-btn" 
+            aria-label="Remove item"
+            @click="$emit('remove')"
+          >
             <span class="material-symbols-outlined">delete</span>
           </button>
         </div>
@@ -66,7 +70,7 @@ const props = defineProps({
   }
 })
 
-defineEmits(['increase', 'decrease'])
+defineEmits(['increase', 'decrease', 'remove'])
 
 const formattedPrice = computed(() => {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(props.product.price)

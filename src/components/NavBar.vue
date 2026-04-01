@@ -24,12 +24,18 @@
         </div>
         
         <!-- Cart -->
-        <button class="navbar__btn-icon" title="Cart">
+        <router-link to="/cart" class="navbar__btn-icon" title="Cart">
           <span class="material-symbols-outlined">shopping_cart</span>
-        </button>
+        </router-link>
         
-        <!-- Sign In (keeping from previous iteration) -->
-        <button class="navbar__cta" id="sign-in-btn">Sign In</button>
+        <!-- Auth State -->
+        <div v-if="user" class="navbar__user">
+          <span class="navbar__user-name">{{ userName }}</span>
+          <button @click="handleLogout" class="navbar__logout" title="Cerrar Sesión">
+            <span class="material-symbols-outlined">logout</span>
+          </button>
+        </div>
+        <router-link v-else to="/login" class="navbar__cta">Sign In</router-link>
         
         <!-- Mobile Toggle -->
         <button class="navbar__hamburger" @click="mobileOpen = !mobileOpen" aria-label="Toggle menu">
@@ -45,6 +51,7 @@
         <a href="/#vault" class="navbar__mobile-link" @click="mobileOpen = false">Strategy</a>
         <a href="/#masterpiece" class="navbar__mobile-link" @click="mobileOpen = false">Vault</a>
         <a href="/#location" class="navbar__mobile-link" @click="mobileOpen = false">About</a>
+        <router-link to="/cart" class="navbar__mobile-link" @click="mobileOpen = false">Carrito</router-link>
         
         <!-- Search bar for mobile -->
         <div class="navbar__search navbar__search--mobile">
@@ -52,17 +59,51 @@
           <input type="text" class="navbar__search-input" placeholder="Search..." />
         </div>
         
-        <button class="navbar__cta navbar__cta--mobile">Sign In</button>
+        <!-- Auth State Mobile -->
+        <div v-if="user" class="navbar__mobile-user">
+          <div class="navbar__user-info">
+            <span class="navbar__user-name">{{ userName }}</span>
+            <span class="navbar__user-email">{{ user.email }}</span>
+          </div>
+          <button @click="handleLogoutMobile" class="navbar__logout-btn">
+            Cerrar Sesión
+          </button>
+        </div>
+        <router-link v-else to="/login" class="navbar__cta navbar__cta--mobile" @click="mobileOpen = false">Sign In</router-link>
       </div>
     </transition>
   </header>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuth } from '../composables/useAuth'
+
+const { user, logout } = useAuth()
+const router = useRouter()
 
 const isScrolled = ref(false)
 const mobileOpen = ref(false)
+
+const userName = computed(() => {
+  if (!user.value) return ''
+  if (user.value.user_metadata?.full_name) {
+    return user.value.user_metadata.full_name.split(' ')[0]
+  }
+  return user.value.email.split('@')[0]
+})
+
+const handleLogout = async () => {
+  await logout()
+  router.push('/login')
+}
+
+const handleLogoutMobile = async () => {
+  mobileOpen.value = false
+  await logout()
+  router.push('/login')
+}
 
 function handleScroll() {
   isScrolled.value = window.scrollY > 20
@@ -223,6 +264,41 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   transform: scale(0.97);
 }
 
+.navbar__user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--surface-container);
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  border-radius: var(--radius-full);
+}
+
+.navbar__user-name {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--primary);
+  text-transform: capitalize;
+}
+
+.navbar__logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  background-color: var(--surface-container-highest);
+  color: var(--on-surface-variant);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.navbar__logout:hover {
+  background-color: var(--error-container);
+  color: var(--error);
+}
+
 .navbar__hamburger {
   display: none;
   background: none;
@@ -275,6 +351,39 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   margin-top: 1rem;
   width: 100%;
   text-align: center;
+}
+
+.navbar__mobile-user {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--surface-container);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.navbar__user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__user-email {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+}
+
+.navbar__logout-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--error-container);
+  color: var(--error);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
 }
 
 /* Mobile menu transition */

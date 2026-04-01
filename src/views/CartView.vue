@@ -12,13 +12,16 @@
     <div class="cart-view__grid">
       <!-- Left Column: Product List -->
       <section class="cart-view__list">
-        <CartItem 
-          v-for="(item, index) in cartItems" 
-          :key="item.sku" 
-          :product="item"
-          @increase="item.quantity++"
-          @decrease="item.quantity > 1 ? item.quantity-- : null"
-        />
+        <transition-group name="list">
+          <CartItem 
+            v-for="(item, index) in cartItems" 
+            :key="item.sku" 
+            :product="item"
+            @increase="item.quantity++"
+            @decrease="item.quantity > 1 ? item.quantity-- : null"
+            @remove="removeItem(index)"
+          />
+        </transition-group>
       </section>
 
       <!-- Right Column: Order Summary -->
@@ -87,6 +90,10 @@ const subtotal = computed(() => {
 })
 
 const shippingCost = ref(12.00) // Base flat shipping
+
+const removeItem = (index) => {
+  cartItems.value.splice(index, 1)
+}
 
 const taxes = computed(() => {
   return subtotal.value * 0.08 // Assume 8% tax
@@ -206,6 +213,22 @@ const taxes = computed(() => {
 }
 .hidden-desktop {
   display: block;
+}
+
+/* Animations */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.list-move {
+  transition: transform 0.4s ease;
 }
 
 @media (min-width: 1024px) {

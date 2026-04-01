@@ -11,10 +11,18 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import NavBar from './components/NavBar.vue'
 import FooterSection from './components/FooterSection.vue'
 import MobileTopBar from './components/MobileTopBar.vue'
 import MobileBottomNav from './components/MobileBottomNav.vue'
+import { useAuth } from './composables/useAuth'
+
+const { initAuth } = useAuth()
+
+onMounted(() => {
+  initAuth()
+})
 </script>
 
 <style>
