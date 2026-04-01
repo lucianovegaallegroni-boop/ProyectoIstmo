@@ -1,55 +1,60 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
 /* ========================================
    ISTMO GAMES — Design System
    ======================================== */
 
-/* ---------- CSS Reset ---------- */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  /* ---------- CSS Reset ---------- */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  background-color: var(--surface);
-  color: var(--on-surface);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--surface);
+    color: var(--on-surface);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-img {
-  display: block;
-  max-width: 100%;
-}
+  img {
+    display: block;
+    max-width: 100%;
+  }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-ul, ol {
-  list-style: none;
-}
+  ul, ol {
+    list-style: none;
+  }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
 
-input {
-  font-family: inherit;
-  border: none;
-  outline: none;
+  input {
+    font-family: inherit;
+    border: none;
+    outline: none;
+  }
 }
 
 /* ---------- Design Tokens ---------- */
