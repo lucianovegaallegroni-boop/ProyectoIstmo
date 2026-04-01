@@ -2,32 +2,30 @@
   <header class="navbar" :class="{ 'navbar--scrolled': isScrolled }">
     <nav class="navbar__inner">
       <div class="navbar__left">
-        <router-link to="/" class="navbar__brand">Istmo Games</router-link>
-        
+        <router-link to="/" class="navbar__brand" title="Istmo Games">
+          <img src="@/assets/logo.png" alt="Istmo Games Logo" class="navbar__logo-img" />
+        </router-link>
+
         <div class="navbar__links">
-          <router-link to="/catalog" class="navbar__link" active-class="navbar__link--active">The Arena</router-link>
-          <a href="/#vault" class="navbar__link">Strategy</a>
-          <a href="/#masterpiece" class="navbar__link">Vault</a>
-          <a href="/#location" class="navbar__link">About</a>
+          <a href="/#pillars" class="navbar__link">Categorías</a>
+          <a href="/#masterpiece" class="navbar__link">Exclusivos</a>
+          <a href="/#location" class="navbar__link">Ubicación</a>
+          <router-link to="/catalog" class="navbar__link" active-class="navbar__link--active">Catálogo</router-link>
         </div>
       </div>
-      
+
       <div class="navbar__right">
         <!-- Search Bar (Desktop only) -->
         <div class="navbar__search">
           <span class="material-symbols-outlined navbar__search-icon" title="Search">search</span>
-          <input 
-            type="text" 
-            class="navbar__search-input" 
-            placeholder="Search the Arena..." 
-          />
+          <input type="text" class="navbar__search-input" placeholder="Buscar en la Arena..." />
         </div>
-        
+
         <!-- Cart -->
-        <router-link to="/cart" class="navbar__btn-icon" title="Cart">
+        <router-link to="/cart" class="navbar__btn-icon" title="Carrito">
           <span class="material-symbols-outlined">shopping_cart</span>
         </router-link>
-        
+
         <!-- Auth State -->
         <div v-if="user" class="navbar__user">
           <span class="navbar__user-name">{{ userName }}</span>
@@ -35,8 +33,8 @@
             <span class="material-symbols-outlined">logout</span>
           </button>
         </div>
-        <router-link v-else to="/login" class="navbar__cta">Sign In</router-link>
-        
+        <router-link v-else to="/login" class="navbar__cta">Iniciar Sesión</router-link>
+
         <!-- Mobile Toggle -->
         <button class="navbar__hamburger" @click="mobileOpen = !mobileOpen" aria-label="Toggle menu">
           <span class="material-symbols-outlined">{{ mobileOpen ? 'close' : 'menu' }}</span>
@@ -47,18 +45,18 @@
     <!-- Mobile menu -->
     <transition name="mobile-menu">
       <div v-if="mobileOpen" class="navbar__mobile">
-        <router-link to="/catalog" class="navbar__mobile-link" @click="mobileOpen = false">The Arena</router-link>
-        <a href="/#vault" class="navbar__mobile-link" @click="mobileOpen = false">Strategy</a>
-        <a href="/#masterpiece" class="navbar__mobile-link" @click="mobileOpen = false">Vault</a>
-        <a href="/#location" class="navbar__mobile-link" @click="mobileOpen = false">About</a>
+        <router-link to="/catalog" class="navbar__mobile-link" @click="mobileOpen = false">Catálogo</router-link>
+        <a href="/#pillars" class="navbar__mobile-link" @click="mobileOpen = false">Categorías</a>
+        <a href="/#masterpiece" class="navbar__mobile-link" @click="mobileOpen = false">Exclusivos</a>
+        <a href="/#location" class="navbar__mobile-link" @click="mobileOpen = false">Ubicación</a>
         <router-link to="/cart" class="navbar__mobile-link" @click="mobileOpen = false">Carrito</router-link>
-        
+
         <!-- Search bar for mobile -->
         <div class="navbar__search navbar__search--mobile">
           <span class="material-symbols-outlined navbar__search-icon">search</span>
-          <input type="text" class="navbar__search-input" placeholder="Search..." />
+          <input type="text" class="navbar__search-input" placeholder="Buscar..." />
         </div>
-        
+
         <!-- Auth State Mobile -->
         <div v-if="user" class="navbar__mobile-user">
           <div class="navbar__user-info">
@@ -69,7 +67,7 @@
             Cerrar Sesión
           </button>
         </div>
-        <router-link v-else to="/login" class="navbar__cta navbar__cta--mobile" @click="mobileOpen = false">Sign In</router-link>
+        <router-link v-else to="/login" class="navbar__cta navbar__cta--mobile" @click="mobileOpen = false">Iniciar Sesión</router-link>
       </div>
     </transition>
   </header>
@@ -153,12 +151,15 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 }
 
 .navbar__brand {
-  font-size: 1.5rem;
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  color: var(--primary);
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  text-transform: uppercase;
+}
+
+.navbar__logo-img {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
 }
 
 .navbar__links {
@@ -320,7 +321,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem 2rem 2rem;
-  background: rgba(255,255,255,0.98);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--outline-variant);
   box-shadow: var(--shadow-md);
@@ -391,6 +392,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .mobile-menu-leave-active {
   transition: all 0.3s ease;
 }
+
 .mobile-menu-enter-from,
 .mobile-menu-leave-to {
   opacity: 0;

@@ -1,29 +1,25 @@
 <template>
   <nav class="mobile-bottom-nav">
     <div class="mobile-bottom-nav__inner">
-      
+
       <!-- Arena / Home Tab -->
-      <router-link to="/" class="mobile-bottom-nav__tab" active-class="mobile-bottom-nav__tab--active" exact-active-class="mobile-bottom-nav__tab--active">
+      <router-link to="/" class="mobile-bottom-nav__tab" active-class="mobile-bottom-nav__tab--active"
+        exact-active-class="mobile-bottom-nav__tab--active">
         <span class="material-symbols-outlined mobile-bottom-nav__icon">sports_esports</span>
-        <span class="mobile-bottom-nav__label">Arena</span>
+        <span class="mobile-bottom-nav__label">Inicio</span>
       </router-link>
-      
+
       <!-- Explore / Catalog Tab -->
       <router-link to="/catalog" class="mobile-bottom-nav__tab" active-class="mobile-bottom-nav__tab--active">
         <span class="material-symbols-outlined mobile-bottom-nav__icon">search</span>
-        <span class="mobile-bottom-nav__label">Explore</span>
+        <span class="mobile-bottom-nav__label">Catálogo</span>
       </router-link>
-      
-      <!-- Collection Tab (Empty for now) -->
-      <a href="#" class="mobile-bottom-nav__tab">
-        <span class="material-symbols-outlined mobile-bottom-nav__icon">style</span>
-        <span class="mobile-bottom-nav__label">Collection</span>
-      </a>
-      
+
       <!-- Cart Tab -->
       <router-link to="/cart" class="mobile-bottom-nav__tab" active-class="mobile-bottom-nav__tab--active">
-        <span class="material-symbols-outlined mobile-bottom-nav__icon" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
-        <span class="mobile-bottom-nav__label">Cart</span>
+        <span class="material-symbols-outlined mobile-bottom-nav__icon"
+          style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+        <span class="mobile-bottom-nav__label">Carrito</span>
       </router-link>
 
     </div>
@@ -55,7 +51,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0.75rem 1rem 1.5rem; /* pt-3 pb-6 px-4 */
+  padding: 0.75rem 1rem 1.5rem;
+  /* pt-3 pb-6 px-4 */
 }
 
 /* Tabs */
@@ -82,8 +79,10 @@
 
 /* Active Tab Styles */
 .mobile-bottom-nav__tab--active {
-  background-color: var(--primary-fixed); /* equivalent to sky-100 */
-  color: var(--on-primary-fixed-variant); /* equivalent to sky-900 */
+  background-color: var(--primary-fixed);
+  /* equivalent to sky-100 */
+  color: var(--on-primary-fixed-variant);
+  /* equivalent to sky-900 */
 }
 
 .mobile-bottom-nav__tab--active .mobile-bottom-nav__icon {
@@ -98,7 +97,8 @@
 
 .mobile-bottom-nav__label {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.75rem; /* text-xs */
+  font-size: 0.75rem;
+  /* text-xs */
   font-weight: 600;
   line-height: 1;
   margin-top: 0.125rem;

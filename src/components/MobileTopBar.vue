@@ -40,9 +40,9 @@ const showBack = computed(() => {
 // Determine title
 const title = computed(() => {
   if (route.name) {
-    if (route.name === 'Home') return 'Arena Hobbyist'
-    if (route.name === 'Catalog') return 'Explore'
-    if (route.name === 'Cart') return 'Shopping Cart'
+    if (route.name === 'Home') return 'Inicio'
+    if (route.name === 'Catalog') return 'Catálogo'
+    if (route.name === 'Cart') return 'Carrito'
     return route.name
   }
   return 'Istmo Games'

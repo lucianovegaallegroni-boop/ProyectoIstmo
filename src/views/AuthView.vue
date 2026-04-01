@@ -5,10 +5,7 @@
       <!-- Card Header -->
       <div class="auth-card__header">
         <div class="auth-card__logo-wrapper">
-          <!-- Stand-in for the ISTMO GAMES logo seen in the screenshot -->
-          <div class="auth-card__logo">
-            <span class="auth-card__logo-text">ISTMO</span>
-          </div>
+          <img src="@/assets/logo.png" alt="Istmo Games Logo" class="auth-card__logo-img" />
         </div>
         <h1 class="auth-card__title">ISTMO GAMES</h1>
         <p class="auth-card__subtitle">
@@ -185,21 +182,11 @@ const handleSubmit = async () => {
   border: 1px solid #f0f0f0;
 }
 
-.auth-card__logo {
-  width: 3.5rem;
-  height: 3.5rem;
-  background-color: #0b0f19; /* very dark blue/black */
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.auth-card__logo-text {
-  color: #a0cbf5; /* inverse primaryish */
-  font-weight: 800;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+.auth-card__logo-img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  display: block;
 }
 
 .auth-card__title {
