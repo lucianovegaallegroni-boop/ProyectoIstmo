@@ -7,7 +7,11 @@
         <span class="product-card__badge">{{ product.badge }}</span>
       </div>
       
-      <button class="product-card__add-btn" :aria-label="`Add ${product.name} to cart`">
+      <button 
+        class="product-card__add-btn" 
+        :aria-label="`Add ${product.name} to cart`"
+        @click.stop="handleAddToCart"
+      >
         <span class="material-symbols-outlined">add</span>
       </button>
     </div>
@@ -17,18 +21,44 @@
         <h3 class="product-card__name">{{ product.name }}</h3>
         <p class="product-card__category">{{ product.category }}</p>
       </div>
-      <span class="product-card__price">{{ product.price }}</span>
+      <span class="product-card__price">{{ formattedPrice }}</span>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+import { useCart } from '../../composables/useCart'
+
+const props = defineProps({
   product: {
     type: Object,
     required: true
   }
 })
+
+const { addToCart } = useCart()
+
+const formattedPrice = computed(() => {
+  if (typeof props.product.price === 'number') {
+    return `$${props.product.price.toFixed(2)}`
+  }
+  return props.product.price // Fallback for strings
+})
+
+const handleAddToCart = () => {
+  // Ensure we pass a numeric price if it's a string like "$89.00"
+  let price = props.product.price
+  if (typeof price === 'string') {
+    price = parseFloat(price.replace('$', ''))
+  }
+  
+  addToCart({
+    ...props.product,
+    sku: props.product.sku || `CAT-${props.product.name.replace(/\s+/g, '-')}`,
+    price: price
+  })
+}
 </script>
 
 <style scoped>

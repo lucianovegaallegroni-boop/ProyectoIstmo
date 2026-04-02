@@ -14,12 +14,12 @@
       <section class="cart-view__list">
         <transition-group name="list">
           <CartItem 
-            v-for="(item, index) in cartItems" 
+            v-for="item in cartItems" 
             :key="item.sku" 
             :product="item"
-            @increase="item.quantity++"
-            @decrease="item.quantity > 1 ? item.quantity-- : null"
-            @remove="removeItem(index)"
+            @increase="updateQuantity(item.sku, item.quantity + 1)"
+            @decrease="updateQuantity(item.sku, item.quantity - 1)"
+            @remove="removeFromCart(item.sku)"
           />
         </transition-group>
       </section>
@@ -37,63 +37,14 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import CartItem from '../components/cart/CartItem.vue'
 import OrderSummary from '../components/cart/OrderSummary.vue'
+import { useCart } from '../composables/useCart'
 
-const cartItems = ref([
-  {
-    name: 'Mythos: The Ancient Gate',
-    sku: 'IG-MYTH-01-PRM',
-    price: 124.99,
-    quantity: 1,
-    badge: "Collector's Choice",
-    tags: [
-      { label: 'Edición Limitada', isAccent: true },
-      { label: 'En Stock', isAccent: false }
-    ],
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCoOR-kFj8E4rwaC7fQjhy7EN4qfM4SaKdxtiQZt5_Dm6PsOOQtahYeMQvpt7eI12V0q3uDiE1a3TK_7gq5qA7BrbsXkVkA7_Jc227SXa1kKzJhW81j06UpWskevboPfImWu5ZA5YZwr0TXcPXqa7MoRnBKODYt6-8y3xBySGPC9lldgd0hXGPHuLD6-rD_Q8XUqgBjPWBrs37vgbEBiEPe_UA11HRqHH31w_awtnIU-s4RIPRO6qM83RIwtbyQjn7RUSQzBsW5ahSr',
-    alt: 'luxury board game box with intricate golden illustrations'
-  },
-  {
-    name: 'Chromium Alloy Dice Set (Metal)',
-    sku: 'IG-ACC-DICE-X',
-    price: 89.00,
-    quantity: 2,
-    badge: '',
-    tags: [
-      { label: 'Accesorio', isAccent: false }
-    ],
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBu4868DcuIjtqEBy6veuJaWvd3cdk-N_7kFttObnnYvlngPV6Xwws44QTuAS0BFmMu8FIlebtoTi1Vt57Dkb-NT4UuqgpPJA6FQrEvupkV_5cCEmdOlfb5ABZFO1mYDkZPE_ivLs7huiAfBTmEkH_E2FKzBT12U_NhEoREPRn3epAqhRzp0NSnZu_3WkDwe5M_ZxpVrhBdQzfLT7Mi5xUN2wtc6JW655XSHA0Xv1srWsmPmf859zkjcicKZWz_eQVVtRgvT5dsbgGm',
-    alt: 'set of premium heavy metal dice for tabletop games'
-  },
-  {
-    name: 'Archival Grade Sleeves',
-    sku: 'IG-SUP-SLV-100',
-    price: 15.50,
-    quantity: 1,
-    badge: '',
-    tags: [
-      { label: 'Suministros', isAccent: false }
-    ],
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJcmQOaqP3vIB1JnN0Z146IMVX9Ev-nhxYs1wajdCr_swlHOgHL2Lu3AJPf9CHCGbmEcm1eqbLrPlosZpMWR4FmCJnPkgkNRT89BtpDURneQOmcp-7ZOKjpbrK63SlByXaQDdNSTfi0k9I7AB5_PPVWrYex6yBzKUZia7JnniYLgm9tlXPWDmNHWmxI5U1IMt6PhtjUy28KX21vociVGMUZj92SPRTyr8loAkHfV6f3-1WtZmZ8msp5xRR-6RhSR7TjUP5TFZiNS8F',
-    alt: 'thick high-quality protective sleeves for trading cards'
-  }
-])
+const { cartItems, totalItems, subtotal, removeFromCart, updateQuantity } = useCart()
 
-const totalItems = computed(() => {
-  return cartItems.value.reduce((acc, item) => acc + item.quantity, 0)
-})
-
-const subtotal = computed(() => {
-  return cartItems.value.reduce((acc, item) => acc + (item.price * item.quantity), 0)
-})
-
-const shippingCost = ref(12.00) // Base flat shipping
-
-const removeItem = (index) => {
-  cartItems.value.splice(index, 1)
-}
+const shippingCost = computed(() => subtotal.value > 0 ? 12.00 : 0) // Base flat shipping
 
 const taxes = computed(() => {
   return subtotal.value * 0.08 // Assume 8% tax

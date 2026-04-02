@@ -35,6 +35,26 @@ const routes = [
     path: '/pillars/rpgs',
     name: 'RPGs',
     component: () => import('../views/Pillars/RPGsView.vue')
+  },
+  {
+    path: '/pillars/modelismo',
+    name: 'Modelismo',
+    component: () => import('../views/Pillars/ModelismoView.vue')
+  },
+  {
+    path: '/admin/inventory',
+    name: 'AdminInventory',
+    component: () => import('../views/AdminInventoryView.vue')
+  },
+  {
+    path: '/admin/inventory/upload',
+    name: 'AdminInventoryUpload',
+    component: () => import('../views/AdminInventoryUploadView.vue')
+  },
+  {
+    path: '/admin/orders',
+    name: 'AdminOrders',
+    component: () => import('../views/AdminOrdersView.vue')
   }
 ]
 

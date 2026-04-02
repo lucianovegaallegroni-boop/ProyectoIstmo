@@ -85,39 +85,21 @@
             <h2 class="section__title">Estrategia Clásica</h2>
           </div>
           <div class="list-container">
-            <!-- The Grand Architect -->
-            <div class="list-item">
+            <!-- Classic Strategy Items -->
+            <div v-for="item in classicStrategy" :key="item.sku" class="list-item">
               <div class="list-item__media">
-                <img class="list-item__img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1Oyw5F0HhDm-Z_LTnMkK4YFTSkNjJUj-qQwh4EkepiF4WW1CBBhGu0lQ5xWVZl_90ZiyL-5BycLdL3ca1pTVT-wX3KiqEiuu_dDyf3xgGiPPK5pe_YgBf849mDK_6HB8AeWx5wV2n9zwACfEyOijbp11lc62AwPTep-goYeDnovioUnVVPla88zIm7Mh7lvvo2NJWYDtq7Ra57LKn1JcIjsJCb0hLwIj7M3Uxz4uhwkOhkV4rmSDKhHBuwdo3mKDf6GrbHQjAuKnG"/>
+                <img class="list-item__img" :src="item.image"/>
               </div>
               <div class="list-item__content">
                 <div class="list-item__badges">
-                  <span class="badge badge--primary">Esencial</span>
-                  <span class="badge badge--secondary">Más Vendido</span>
+                  <span v-for="tag in item.tags" :key="tag.label" class="badge" :class="tag.isAccent ? 'badge--primary' : 'badge--secondary'">{{ tag.label }}</span>
                 </div>
-                <h3 class="list-item__title">The Grand Architect</h3>
-                <p class="list-item__desc">Diseña ciudades catedralicias y gestiona la mano de obra en este premiado juego de construcción de motores ambientado en el Renacimiento.</p>
+                <h3 class="list-item__title">{{ item.name }}</h3>
+                <p class="list-item__desc">{{ item.description }}</p>
               </div>
               <div class="list-item__action">
-                <p class="list-item__price">$59.99</p>
-                <button class="list-item__btn">Añadir al Carrito</button>
-              </div>
-            </div>
-            <!-- Silk Road Express -->
-            <div class="list-item">
-              <div class="list-item__media">
-                <img class="list-item__img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-DaHExGqVgKpXF9BvkMTrNIhXFks6TaXHelTStHjudHyK1cGZzK0uesqN6f5o9BHxkuMXmTgZgdTDTY6509ju0CNiOqYFjnyEOTtnwJUdnYKwvUITNIrcmMui_4pwPtUa3AQXg11a0K9muVWS1EPH1kRWKJCJuPzCbsfmEdMe8FZnVYR5welvgrmCh4EJT_r6nQ9_Bc4DeBLAZBDUi7HrBtOgbVfxTfcEh84nl1v9Kj3MT1mkGJOJOY3Z55VO_fXml1qFJYqkefis"/>
-              </div>
-              <div class="list-item__content">
-                <div class="list-item__badges">
-                  <span class="badge badge--secondary">Más Vendido</span>
-                </div>
-                <h3 class="list-item__title">Silk Road Express</h3>
-                <p class="list-item__desc">Un juego de comercio de ritmo rápido donde construyes rutas de caravanas a través de los desiertos de Asia Central.</p>
-              </div>
-              <div class="list-item__action">
-                <p class="list-item__price">$42.50</p>
-                <button class="list-item__btn">Añadir al Carrito</button>
+                <p class="list-item__price">${{ item.price }}</p>
+                <button @click="addToCart(item)" class="list-item__btn">Añadir al Carrito</button>
               </div>
             </div>
           </div>
@@ -284,7 +266,28 @@
 </template>
 
 <script setup>
-// En el futuro, añade aquí la importación de useCart una vez que el composable sea creado.
+import { useCart } from '../../composables/useCart'
+
+const { addToCart } = useCart()
+
+const classicStrategy = [
+  {
+    sku: 'BG-CLASSIC-01',
+    name: "The Grand Architect",
+    price: 59.99,
+    description: "Diseña ciudades catedralicias y gestiona la mano de obra en este premiado juego de construcción de motores ambientado en el Renacimiento.",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC1Oyw5F0HhDm-Z_LTnMkK4YFTSkNjJUj-qQwh4EkepiF4WW1CBBhGu0lQ5xWVZl_90ZiyL-5BycLdL3ca1pTVT-wX3KiqEiuu_dDyf3xgGiPPK5pe_YgBf849mDK_6HB8AeWx5wV2n9zwACfEyOijbp11lc62AwPTep-goYeDnovioUnVVPla88zIm7Mh7lvvo2NJWYDtq7Ra57LKn1JcIjsJCb0hLwIj7M3Uxz4uhwkOhkV4rmSDKhHBuwdo3mKDf6GrbHQjAuKnG',
+    tags: [{ label: 'Esencial', isAccent: true }, { label: 'Más Vendido', isAccent: false }]
+  },
+  {
+    sku: 'BG-CLASSIC-02',
+    name: "Silk Road Express",
+    price: 42.50,
+    description: "Un juego de comercio de ritmo rápido donde construyes rutas de caravanas a través de los desiertos de Asia Central.",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-DaHExGqVgKpXF9BvkMTrNIhXFks6TaXHelTStHjudHyK1cGZzK0uesqN6f5o9BHxkuMXmTgZgdTDTY6509ju0CNiOqYFjnyEOTtnwJUdnYKwvUITNIrcmMui_4pwPtUa3AQXg11a0K9muVWS1EPH1kRWKJCJuPzCbsfmEdMe8FZnVYR5welvgrmCh4EJT_r6nQ9_Bc4DeBLAZBDUi7HrBtOgbVfxTfcEh84nl1v9Kj3MT1mkGJOJOY3Z55VO_fXml1qFJYqkefis',
+    tags: [{ label: 'Más Vendido', isAccent: false }]
+  }
+]
 </script>
 
 <style scoped>

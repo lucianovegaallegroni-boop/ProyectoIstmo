@@ -31,41 +31,20 @@
             <p class="text-on-surface-variant font-medium max-w-md text-right">The foundations of every great campaign. Masterwork tomes for the dedicated chronicler.</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-12">
-            <!-- Book Card 1 -->
-            <div class="group bg-surface-container-lowest p-6 rounded-xl hover:shadow-2xl transition-all duration-500">
+            <!-- Book Card -->
+            <div v-for="book in coreBooks" :key="book.sku" class="group bg-surface-container-lowest p-6 rounded-xl hover:shadow-2xl transition-all duration-500">
               <div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-surface-container-highest relative">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="aged leather bound fantasy book with intricate gold embossing and silver metal corners on a dark wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPsnyvm45V8AdKV6BKw4K1Ve0ZTClhhJ9zgY9NWWNIdw-Ri5olDg_EBN4vvuKsqygIlNdRU6xnfGAs69emwJRrAQHQUoN7RxY-RqttOtJvBAy7qRBg2TYV4dJ2PFLmec9Hf1cfJm1ENEaIENkD92NpYW1TXpvrpdyrbHbL7fWQwDfKYcI9nwR22l1XE9v6_7myEN_p6VCyn2dA6hzH_6-2hLc5Q92jngMjRRCrAnBrxSoBwyjtFyl0kz9Vi0uycis1vWndbpXNoK4O"/>
-                <div class="absolute top-4 right-4 backdrop-blur-md bg-white/20 px-4 py-1 rounded-full text-xs font-bold text-white uppercase tracking-widest">Masterwork</div>
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" :src="book.image"/>
+                <div v-if="book.badge" class="absolute top-4 right-4 backdrop-blur-md bg-white/20 px-4 py-1 rounded-full text-xs font-bold text-white uppercase tracking-widest">{{ book.badge }}</div>
               </div>
-              <h3 class="text-primary text-2xl font-bold mb-2">The Chronicler's Tome</h3>
-              <p class="text-on-surface-variant mb-6 text-sm">The definitive guide to world-building and lore preservation.</p>
+              <h3 class="text-primary text-2xl font-bold mb-2">{{ book.name }}</h3>
+              <p class="text-on-surface-variant mb-6 text-sm">{{ book.description }}</p>
               <div class="flex justify-between items-center">
-                <span class="text-secondary font-black text-xl">$59.99</span>
-                <button class="material-symbols-outlined bg-surface-container text-primary p-3 rounded-full hover:bg-primary hover:text-white transition-colors">add_shopping_cart</button>
-              </div>
-            </div>
-            <!-- Book Card 2 -->
-            <div class="group bg-surface-container-lowest p-6 rounded-xl hover:shadow-2xl transition-all duration-500">
-              <div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-surface-container-highest relative">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="mysterious dark fantasy tome with glowing purple runes and velvet textures in a dimly lit library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlTY3WWGXWSmhylR5YgHwO3SfYBsUQnPlJS99rMGkEL5aW3NPwxbSusC_0SHXURNZGNFMnb5MMK9n0hATySvZxzU58OUjV7gYZngl7lc5SP8UkywWX6cG3vvqLcEb7PBjCMQsJFHTdeccyN0mu2oOK0zUywHGNf8zOSfI11GXCVFiqi-dDioeR6zIlilRh6-AFP7gN6aSTsQ0z629RcwdciOrdX83jf4LOmDVSx56Mhr4bYLvA3wRfVyiDsPwT3epLmzhBKzChtf4s"/>
-              </div>
-              <h3 class="text-primary text-2xl font-bold mb-2">Path of Shadows</h3>
-              <p class="text-on-surface-variant mb-6 text-sm">Advanced mechanics for stealth, intrigue, and the darker arts.</p>
-              <div class="flex justify-between items-center">
-                <span class="text-secondary font-black text-xl">$44.99</span>
-                <button class="material-symbols-outlined bg-surface-container text-primary p-3 rounded-full hover:bg-primary hover:text-white transition-colors">add_shopping_cart</button>
-              </div>
-            </div>
-            <!-- Book Card 3 -->
-            <div class="group bg-surface-container-lowest p-6 rounded-xl hover:shadow-2xl transition-all duration-500">
-              <div class="aspect-[3/4] rounded-lg overflow-hidden mb-6 bg-surface-container-highest relative">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="ancient blue manuscript with celestial maps and glowing silver constellations on thick parchment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6EzHiFued1FKT2AKXQr9cca1aZEz-GeAJJkfV535q5TmQU20OwmKcjsKEbISF-gcS0NdD_--fYvJcDc0FlZaAoPPP2FscQ2Zua54kC083uq4nzIkqdRi6glk2PyAdt3HVguGb-QfQHziB8hvEdgQfA2bbPF4O7BIDkaoxS6C9zwhPg4nxW-SAmywo3jNO6dpoYguRKJXb5A6SdjLw2SaozlTt9bMMgth4IR5-hfUsK-psfLnDgauealhq0ta5nCFSuUP3dLuZxhSA"/>
-              </div>
-              <h3 class="text-primary text-2xl font-bold mb-2">Arcane Origins</h3>
-              <p class="text-on-surface-variant mb-6 text-sm">A deep dive into the primal sources of magic and spellcrafting.</p>
-              <div class="flex justify-between items-center">
-                <span class="text-secondary font-black text-xl">$49.99</span>
-                <button class="material-symbols-outlined bg-surface-container text-primary p-3 rounded-full hover:bg-primary hover:text-white transition-colors">add_shopping_cart</button>
+                <span class="text-secondary font-black text-xl">${{ book.price }}</span>
+                <button 
+                  @click="addToCart(book)"
+                  class="material-symbols-outlined bg-surface-container text-primary p-3 rounded-full hover:bg-primary hover:text-white transition-colors"
+                >add_shopping_cart</button>
               </div>
             </div>
           </div>
@@ -84,32 +63,20 @@
             </a>
           </div>
           <div class="col-span-8 grid grid-cols-3 gap-6">
-            <!-- Dice 1 -->
-            <div class="bg-surface-container-low rounded-xl p-4 group">
+            <!-- Dice Card -->
+            <div v-for="dice in handcraftedDice" :key="dice.sku" class="bg-surface-container-low rounded-xl p-4 group">
               <div class="aspect-square rounded-lg overflow-hidden mb-4 bg-surface-container-highest">
-                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="close-up of nebula themed translucent dnd dice with swirls of purple, blue, and gold flakes on a reflective surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhHT8W-iZdeJpsIhTwS35Rltq39IV3s2Bfh0iNLb6zfp7xXa_1GUB2EPhRtmeuCJOsQt-R-8xwFmOfMDIhXukhSlb4KeFhoFtjdfeOO5xjac1B8OI84bdfz9TjAIDgPjh8Fk5NgI-wrOo2zAxG8KJ0lvR78wF7K8HSvqgN_MGlj_qA6qri_3Jll74AhncyLHAW35O5eQqRHEUqDOvlnFZcGivOiId0sFLHcX5Ijivumk0Ctu0ZpEglPINx69eyZc0cxgN2MxjndWcK"/>
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" :src="dice.image"/>
               </div>
-              <h4 class="font-bold text-primary">Nebula Shard Set</h4>
-              <p class="text-xs text-on-surface-variant mb-4">Acrylic & Cosmos Dust</p>
-              <span class="text-secondary-container bg-on-secondary-container/10 px-3 py-1 rounded-full text-sm font-bold">$35.00</span>
-            </div>
-            <!-- Dice 2 -->
-            <div class="bg-surface-container-low rounded-xl p-4 group">
-              <div class="aspect-square rounded-lg overflow-hidden mb-4 bg-surface-container-highest">
-                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="heavy solid brass 20-sided die with deeply engraved numbers and a weathered vintage patina" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfl_52hIK16w0n43gQM_Yr4Q7CI5XkLypwmm68XpcvDH9zMiZE3js-jtY2SCC4aIFvvD6K999y0Mt3WWDeMDoowUgS3HX79uhxl6XgOlqcKR38iGSfSniu0VHZht5pvKHypfoz2raZlV2ZSMzMwUMTmdRvgAgOmnmv_6yQBlM7XVWQEzrXjDcN0lR-5OQwzrmgD5QS29yj7LKz8pfTbUzkZwTNhKdpttMwKqZiBdGs-vzvsXjTYrR70TH9ysbnIKWhyIGKoByYRLO3"/>
+              <h4 class="font-bold text-primary">{{ dice.name }}</h4>
+              <p class="text-xs text-on-surface-variant mb-4">{{ dice.description }}</p>
+              <div class="flex justify-between items-center">
+                <span class="text-secondary-container bg-on-secondary-container/10 px-3 py-1 rounded-full text-sm font-bold">${{ dice.price }}</span>
+                <button 
+                  @click="addToCart(dice)"
+                  class="material-symbols-outlined text-primary hover:text-secondary transition-colors"
+                >add_shopping_cart</button>
               </div>
-              <h4 class="font-bold text-primary">Solid Brass D20</h4>
-              <p class="text-xs text-on-surface-variant mb-4">Pure Aged Brass</p>
-              <span class="text-secondary-container bg-on-secondary-container/10 px-3 py-1 rounded-full text-sm font-bold">$18.00</span>
-            </div>
-            <!-- Dice 3 -->
-            <div class="bg-surface-container-low rounded-xl p-4 group">
-              <div class="aspect-square rounded-lg overflow-hidden mb-4 bg-surface-container-highest">
-                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="minimalist handcrafted ebony wood dice set with silver inlay numbers sitting on a dark linen cloth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4FN7lAh8xkYNH4nYLL4MQW--P7I-qPUTrSgV0TRyRxaDQXzm8PipRPzhGhN-D_Z1uVq7MSopAE3Nz6qXNCxhQukUl9Wq8eBwt6CU9opCTFNwEVHNKF7sxnpPZMNNvDnd0b99LNK_VSxOBzQO0U3ZxGLnJ0KXaQzPeXVK96OZoQtkEeTL9cacQGed9EJOk3MMBvE0zv2y3QCJ9yoi1AvxtDdBylxmpLR49cwWXTPHqULRZwWo0cETmOkaH55DNkcXlzhxIcD91fDGP"/>
-              </div>
-              <h4 class="font-bold text-primary">Ebony Wood Set</h4>
-              <p class="text-xs text-on-surface-variant mb-4">Polished African Ebony</p>
-              <span class="text-secondary-container bg-on-secondary-container/10 px-3 py-1 rounded-full text-sm font-bold">$85.00</span>
             </div>
           </div>
         </div>
@@ -222,36 +189,33 @@
         </div>
         <div class="grid grid-cols-1 gap-8">
           <!-- Highlight Card -->
-          <div class="relative group">
+          <div class="relative group" @click="addToCart(coreBooks[0])">
             <div class="aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-highest">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a weathered leather bound grimoire with embossed gold filigree patterns sitting on a dark wooden table with candle light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPoVeKwai_CRwzO077aA8inqmx_Bivzu5BzU4Zt0eWE3hkwXgWDj6DT_4XMcIhhNy4vC5TBaGIR4W9pir0Gygc7rCBBDbrZ1B2ksFfV20kEtEXUTTURisIIZRy1XyE6b3hXkw4g32zKUond9UHMJZ5LkW3gpw2OwuMa8Xw71Y6syxpOG5dN6u39chuVekvESh7gMln6lGRVEeg_f380SDQXBI-hNLqOKsOrJBqK_hKqmVPu9dDjVtwxmt3CqbfAv-5qxdhQ7PSWFQ1"/>
-              <div class="absolute top-4 right-4 glass-effect px-3 py-1 rounded-full text-[10px] font-bold uppercase text-primary">Masterwork</div>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" :src="coreBooks[0].image"/>
+              <div v-if="coreBooks[0].badge" class="absolute top-4 right-4 glass-effect px-3 py-1 rounded-full text-[10px] font-bold uppercase text-primary">{{ coreBooks[0].badge }}</div>
             </div>
             <div class="mt-4 flex justify-between items-start">
               <div>
-                <h3 class="font-bold text-lg text-on-surface">The Chronicler's Tome</h3>
-                <p class="text-xs text-on-surface-variant">The definitive guide to world-building and lore.</p>
+                <h3 class="font-bold text-lg text-on-surface">{{ coreBooks[0].name }}</h3>
+                <p class="text-xs text-on-surface-variant">{{ coreBooks[0].description }}</p>
               </div>
-              <span class="text-secondary font-bold">$54.99</span>
+              <span class="text-secondary font-bold">${{ coreBooks[0].price }}</span>
             </div>
           </div>
           <!-- Secondary Scroll -->
           <div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
-            <div class="min-w-[200px] bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+            <div 
+              v-for="book in coreBooks.slice(1)" 
+              :key="book.sku" 
+              class="min-w-[200px] bg-surface-container-lowest p-4 rounded-xl shadow-sm"
+              @click="addToCart(book)"
+            >
               <div class="aspect-square rounded-lg bg-surface-container mb-3 overflow-hidden">
-                <img class="w-full h-full object-cover" data-alt="Minimalist design of a heavy black book with silver lettering titled Shadows and Light in a studio lighting setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO4OSfot9kZ_d1SZkNMf_BK5a-52vrJV-qVYZaiV3FfHiiJ89Xa4dEkvX5XEYbhJbLv-Ca6mwWmTm73FHLd3qWmxhVzuEk7QY3OweFNMkvrLPmhVdo6fpP8QTEjQ0zyEwbBSXVoCtTLkIrbSm-o-543iuX4ElMwdjLMZhEC8l2qyFTuM3BOmXEMYQ_7KCcbsehRFU4K4R6-QXNOocI_eKjheYGe3zXTJ9WJej96dMgCQkX-h5nyoxEY_SDH2TxYxZDZj9zzMFQaWO4"/>
+                <img class="w-full h-full object-cover" :src="book.image"/>
               </div>
-              <h4 class="font-bold text-sm">Path of Shadows</h4>
-              <p class="text-[11px] text-on-surface-variant mb-2">Advanced Stealth Mechanics</p>
-              <span class="text-xs font-bold text-primary">$39.00</span>
-            </div>
-            <div class="min-w-[200px] bg-surface-container-lowest p-4 rounded-xl shadow-sm">
-              <div class="aspect-square rounded-lg bg-surface-container mb-3 overflow-hidden">
-                <img class="w-full h-full object-cover" data-alt="Vintage style hardcover book with a glowing blue crystal embedded in the center sitting on an old map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ5vvpqae4leh2yO-uMMY878sqIkTpUhvrzF8x-Fj2z-T-ibWodkGyMxRkly8hRNPb-ZK0alziCq34xaFaixb-T-Wmq0EjVhAlu7hxOeuA5ytyBPmxOSYpPDsypMnhhTYFzzcN2QhgB3q1Opy-PWpHjDpfxb_4bXkX6BQBjgVoKxcY19sXHEMQjeqkD9V1ZrknkDM_ftgwFm-xBEnZ_9tNBfeBQTtROgX2O0g4jw5-9BcHxLd-B0pIIsWq95HsCbQXu6cNzDPfcuWJ"/>
-              </div>
-              <h4 class="font-bold text-sm">Arcane Origins</h4>
-              <p class="text-[11px] text-on-surface-variant mb-2">Spellcasting Fundamentals</p>
-              <span class="text-xs font-bold text-primary">$45.00</span>
+              <h4 class="font-bold text-sm">{{ book.name }}</h4>
+              <p class="text-[11px] text-on-surface-variant mb-2">{{ book.description }}</p>
+              <span class="text-xs font-bold text-primary">${{ book.price }}</span>
             </div>
           </div>
         </div>
@@ -264,26 +228,24 @@
           <h2 class="text-3xl font-extrabold tracking-tight text-on-surface mt-2 font-headline">Handcrafted Dice</h2>
         </div>
         <div class="grid grid-cols-2 gap-4">
-          <div class="col-span-2 relative h-48 rounded-2xl overflow-hidden bg-primary-container">
-            <img class="w-full h-full object-cover opacity-60" data-alt="A set of sharp edge resin dice with shimmering blue and gold flakes inside, macro photography with bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4yMA_RwFWwNkcYCEi19TjK0K63_3_tkihQfaSFOOLng2AF2CJxWEdb2ELSrwRZCvdcXD1zHGU_sGuJzC2J0xbqATVVlm_NkDSjIp5sYKzBegNIBlmKmf3f7V2BaUi3LYPEnxLeco4jacY_gz26vqptZ31yT8aXz1uZn_PdKhqPvMn2dYvoYRIqlAdNQJOYYo1ZHcHOLPn53i0hU4mMzvMhhNuibIiFmLRySCgNsV3ndGGa2BcW8I4vv7RCKtFu0iP3ubAVzVFMewJ"/>
+          <div class="col-span-2 relative h-48 rounded-2xl overflow-hidden bg-primary-container" @click="addToCart(handcraftedDice[0])">
+            <img class="w-full h-full object-cover opacity-60" :src="handcraftedDice[0].image"/>
             <div class="absolute inset-0 p-6 flex flex-col justify-end">
-              <h3 class="text-on-primary font-bold text-xl">Nebula Shard Set</h3>
-              <p class="text-on-primary-container text-xs">Sharp-edged premium resin</p>
+              <h3 class="text-on-primary font-bold text-xl">{{ handcraftedDice[0].name }}</h3>
+              <p class="text-on-primary-container text-xs">{{ handcraftedDice[0].description }}</p>
             </div>
           </div>
-          <div class="bg-surface-container-lowest p-4 rounded-2xl">
+          <div 
+            v-for="dice in handcraftedDice.slice(1)" 
+            :key="dice.sku" 
+            class="bg-surface-container-lowest p-4 rounded-2xl"
+            @click="addToCart(dice)"
+          >
             <div class="aspect-square rounded-xl bg-surface-container mb-3 overflow-hidden">
-              <img class="w-full h-full object-cover" data-alt="Single d20 dice made of solid polished brass with intricate engravings on a dark slate surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNOC7uTcaHK6_Enna7NJQklf2vBLZb6Wm97LPtuj2RlqUHcto5YoFOF1XEKCtRrc2S0HtXqHd_EKlFM-LFql84ZHqBNVoLK28wNB7gwKKuxr9Qn4bjvz9GLJBCrL7ve4ZmAm_iFOthShcBvkuA2jdZS52RX1Ok9K8H8FfKxwg_kSnAmhj7bu3kM74uhHGNeAbgVps4angILRr1yi0EXvru1CFMJhXA_bG46_mpzKeSx5ccT7i1VRfW9l6mILmameO7KwhvsMyabd-p"/>
+              <img class="w-full h-full object-cover" :src="dice.image"/>
             </div>
-            <p class="font-bold text-xs">Solid Brass D20</p>
-            <p class="text-secondary text-[10px] font-bold">$22.00</p>
-          </div>
-          <div class="bg-surface-container-lowest p-4 rounded-2xl">
-            <div class="aspect-square rounded-xl bg-surface-container mb-3 overflow-hidden">
-              <img class="w-full h-full object-cover" data-alt="A set of carved wooden dice made of dark ebony wood with white painted numbers in a soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9Ef0daBmXvBmBn-nHu1bWAauPjRTS11H816OW8uoD2Pka7TOSkAqoJzJQaJsSaoavF-5KfsOTeLVeGeCuHizrF7oSwXnUJFEfrUxk7ydhe4QImOgTbTrGAcbMPYRviBah6ZrQvoaU6AsWdFa07PX6xiUMIeo8DI9pvjq-V53aYQitfl85y-xxPnpr-C3R5-NST3AWpM3miAQQiW6S35xt8iJP5Au3OBsWIz1py-zxSsf_HG5ziQRAlffoxxOq--HLeJUmLBtkMRQz"/>
-            </div>
-            <p class="font-bold text-xs">Ebony Wood Set</p>
-            <p class="text-secondary text-[10px] font-bold">$48.00</p>
+            <p class="font-bold text-xs">{{ dice.name }}</p>
+            <p class="text-secondary text-[10px] font-bold">${{ dice.price }}</p>
           </div>
         </div>
       </section>
@@ -340,6 +302,64 @@
 </template>
 
 <script setup>
+import { useCart } from '../../composables/useCart'
+
+const { addToCart } = useCart()
+
+const coreBooks = [
+  {
+    sku: 'RPG-BOOK-01',
+    name: "The Chronicler's Tome",
+    price: 59.99,
+    description: "The definitive guide to world-building and lore preservation.",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDPsnyvm45V8AdKV6BKw4K1Ve0ZTClhhJ9zgY9NWWNIdw-Ri5olDg_EBN4vvuKsqygIlNdRU6xnfGAs69emwJRrAQHQUoN7RxY-RqttOtJvBAy7qRBg2TYV4dJ2PFLmec9Hf1cfJm1ENEaIENkD92NpYW1TXpvrpdyrbHbL7fWQwDfKYcI9nwR22l1XE9v6_7myEN_p6VCyn2dA6hzH_6-2hLc5Q92jngMjRRCrAnBrxSoBwyjtFyl0kz9Vi0uycis1vWndbpXNoK4O',
+    badge: 'Masterwork',
+    tags: [{ label: 'Masterwork', isAccent: true }]
+  },
+  {
+    sku: 'RPG-BOOK-02',
+    name: "Path of Shadows",
+    price: 44.99,
+    description: "Advanced mechanics for stealth, intrigue, and the darker arts.",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAlTY3WWGXWSmhylR5YgHwO3SfYBsUQnPlJS99rMGkEL5aW3NPwxbSusC_0SHXURNZGNFMnb5MMK9n0hATySvZxzU58OUjV7gYZngl7lc5SP8UkywWX6cG3vvqLcEb7PBjCMQsJFHTdeccyN0mu2oOK0zUywHGNf8zOSfI11GXCVFiqi-dDioeR6zIlilRh6-AFP7gN6aSTsQ0z629RcwdciOrdX83jf4LOmDVSx56Mhr4bYLvA3wRfVyiDsPwT3epLmzhBKzChtf4s',
+    tags: []
+  },
+  {
+    sku: 'RPG-BOOK-03',
+    name: "Arcane Origins",
+    price: 49.99,
+    description: "A deep dive into the primal sources of magic and spellcrafting.",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD6EzHiFued1FKT2AKXQr9cca1aZEz-GeAJJkfV535q5TmQU20OwmKcjsKEbISF-gcS0NdD_--fYvJcDc0FlZaAoPPP2FscQ2Zua54kC083uq4nzIkqdRi6glk2PyAdt3HVguGb-QfQHziB8hvEdgQfA2bbPF4O7BIDkaoxS6C9zwhPg4nxW-SAmywo3jNO6dpoYguRKJXb5A6SdjLw2SaozlTt9bMMgth4IR5-hfUsK-psfLnDgauealhq0ta5nCFSuUP3dLuZxhSA',
+    tags: []
+  }
+]
+
+const handcraftedDice = [
+  {
+    sku: 'RPG-DICE-01',
+    name: "Nebula Shard Set",
+    price: 35.00,
+    description: "Acrylic & Cosmos Dust",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAhHT8W-iZdeJpsIhTwS35Rltq39IV3s2Bfh0iNLb6zfp7xXa_1GUB2EPhRtmeuCJOsQt-R-8xwFmOfMDIhXukhSlb4KeFhoFtjdfeOO5xjac1B8OI84bdfz9TjAIDgPjh8Fk5NgI-wrOo2zAxG8KJ0lvR78wF7K8HSvqgN_MGlj_qA6qri_3Jll74AhncyLHAW35O5eQqRHEUqDOvlnFZcGivOiId0sFLHcX5Ijivumk0Ctu0ZpEglPINx69eyZc0cxgN2MxjndWcK',
+    tags: []
+  },
+  {
+    sku: 'RPG-DICE-02',
+    name: "Solid Brass D20",
+    price: 18.00,
+    description: "Pure Aged Brass",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDfl_52hIK16w0n43gQM_Yr4Q7CI5XkLypwmm68XpcvDH9zMiZE3js-jtY2SCC4aIFvvD6K999y0Mt3WWDeMDoowUgS3HX79uhxl6XgOlqcKR38iGSfSniu0VHZht5pvKHypfoz2raZlV2ZSMzMwUMTmdRvgAgOmnmv_6yQBlM7XVWQEzrXjDcN0lR-5OQwzrmgD5QS29yj7LKz8pfTbUzkZwTNhKdpttMwKqZiBdGs-vzvsXjTYrR70TH9ysbnIKWhyIGKoByYRLO3',
+    tags: []
+  },
+  {
+    sku: 'RPG-DICE-03',
+    name: "Ebony Wood Set",
+    price: 85.00,
+    description: "Polished African Ebony",
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB4FN7lAh8xkYNH4nYLL4MQW--P7I-qPUTrSgV0TRyRxaDQXzm8PipRPzhGhN-D_Z1uVq7MSopAE3Nz6qXNCxhQukUl9Wq8eBwt6CU9opCTFNwEVHNKF7sxnpPZMNNvDnd0b99LNK_VSxOBzQO0U3ZxGLnJ0KXaQzPeXVK96OZoQtkEeTL9cacQGed9EJOk3MMBvE0zv2y3QCJ9yoi1AvxtDdBylxmpLR49cwWXTPHqULRZwWo0cETmOkaH55DNkcXlzhxIcD91fDGP',
+    tags: []
+  }
+]
 </script>
 
 <style scoped>

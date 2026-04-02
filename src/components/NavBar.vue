@@ -8,9 +8,6 @@
 
         <div class="navbar__links">
           <a href="/#pillars" class="navbar__link">Categorías</a>
-          <router-link to="/pillars/board-games" class="navbar__link" active-class="navbar__link--active">Juegos de Mesa</router-link>
-          <router-link to="/pillars/tcg" class="navbar__link" active-class="navbar__link--active">Cartas TCG</router-link>
-          <router-link to="/pillars/rpgs" class="navbar__link" active-class="navbar__link--active">Juegos de Rol (RPG)</router-link>
           <a href="/#masterpiece" class="navbar__link">Exclusivos</a>
           <a href="/#location" class="navbar__link">Ubicación</a>
           <router-link to="/catalog" class="navbar__link" active-class="navbar__link--active">Catálogo</router-link>
@@ -27,6 +24,7 @@
         <!-- Cart -->
         <router-link to="/cart" class="navbar__btn-icon" title="Carrito">
           <span class="material-symbols-outlined">shopping_cart</span>
+          <span v-if="totalItems > 0" class="navbar__cart-badge">{{ totalItems }}</span>
         </router-link>
 
         <!-- Auth State -->
@@ -70,7 +68,8 @@
             Cerrar Sesión
           </button>
         </div>
-        <router-link v-else to="/login" class="navbar__cta navbar__cta--mobile" @click="mobileOpen = false">Iniciar Sesión</router-link>
+        <router-link v-else to="/login" class="navbar__cta navbar__cta--mobile" @click="mobileOpen = false">Iniciar
+          Sesión</router-link>
       </div>
     </transition>
   </header>
@@ -80,8 +79,10 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuth } from '../composables/useAuth'
+import { useCart } from '../composables/useCart'
 
 const { user, logout } = useAuth()
+const { totalItems } = useCart()
 const router = useRouter()
 
 const isScrolled = ref(false)
@@ -232,6 +233,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
 /* Icons and CTA */
 .navbar__btn-icon {
+  position: relative;
   background: none;
   color: var(--primary);
   transition: transform var(--transition-fast);
@@ -239,6 +241,24 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   align-items: center;
   justify-content: center;
   padding: 0;
+}
+
+.navbar__cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--error);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid white;
 }
 
 .navbar__btn-icon:hover {

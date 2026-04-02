@@ -8,9 +8,10 @@
       <p class="pillars__tagline">Curating excellence across domains</p>
     </div>
     <div class="pillars__grid">
-      <div
+      <router-link
         v-for="(pillar, index) in pillars"
         :key="pillar.title"
+        :to="pillar.route"
         class="pillar-card"
         :class="{ 'pillar-card--offset': index % 2 !== 0 }"
       >
@@ -20,7 +21,7 @@
           <h3 class="pillar-card__title">{{ pillar.title }}</h3>
           <p class="pillar-card__subtitle">{{ pillar.subtitle }}</p>
         </div>
-      </div>
+      </router-link>
     </div>
   </section>
 </template>
@@ -31,25 +32,29 @@ const pillars = [
     title: 'Board Games',
     subtitle: 'Modern Strategy & Classics',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB_IIAEIGxRsfQHF4ZIqm_wjZViTRgtJ0N1LJJj8d82F11SaivIvaDBIykKB-dnMem9CJSdevZ4Xyk839lwvkE5RE2C6i5-kWAjsNBmn3VRCq4k9kvmV8lcV_HGEkLHqZCcyX9adfr59E54T1CTmoL4uHSecIM6KHMC2LMDYOpgJsDfBZu7_u_EgYEOy42ZcXDcn7ByqK8o8_zs8JaNodHDJwf6Barhnu5QatFiiThhR37Dvoq2qvk7x_h0FpkqznEeDzqZ0J14yCwT',
-    alt: 'High-end modern board game pieces on a dark walnut table with cinematic lighting'
+    alt: 'High-end modern board game pieces on a dark walnut table with cinematic lighting',
+    route: '/pillars/board-games'
   },
   {
     title: 'RPGs',
     subtitle: 'Infinite Worlds, Curated',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCGZRHPbGT0Amnft-C9amND03MnInfXDFUQ7xayONUc6wbK6eVEHyGuvIfGfLaKDaOFdycWrb1Avw39DwR1_zZvolOJmuQwCqPC5acMVvfbVhooFcvCko2whVdlpOH_8Hu4HInhrfJH-g2qHmZxTYthsMYYhP-CnfsRkzykjoaX2mnRwcSvsP1gjF3eta76z8xHRk1MTVBtzQvtyhdbssIjgw3zjAYu-RGqU9q3ylbbfxdNDWvfTlcMKUOtv-JNyal5d5FLWPNaV_HO',
-    alt: 'Metal polyhedral dice set on a leather-bound book in a candlelit fantasy setting'
+    alt: 'Metal polyhedral dice set on a leather-bound book in a candlelit fantasy setting',
+    route: '/pillars/rpgs'
   },
   {
     title: 'Trading Cards',
     subtitle: 'Elite Rarity Acquisitions',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAeude5UwQyWs89tPILo8F6H9OMNZtTeB8Fq9Sq2Hlnyyoc0Web5BIjkYdI_CPM97YSXR_VduHSgEAt258TYq7P43GsCC-LJQfrrebCbPAUF3A1UagVAELl_rYGeeZHlz12dMc4wgEjXc19Ii-OqTGhYXTDqjCoZNqQmCJRvnLtXDZWkkkQGVDUceEavQMjzpBzZ86n_lbcmaQ8mwiEieCeium5cc0b31xSXU_O5k3AamYFJmgzAoVtT_uLjPMeX2sa5thuRsIREasM',
-    alt: 'Close-up of collectible trading cards in premium protective sleeves with metallic highlights'
+    alt: 'Close-up of collectible trading cards in premium protective sleeves with metallic highlights',
+    route: '/pillars/tcg'
   },
   {
     title: 'Modelism',
     subtitle: 'Precision & Artistry',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMrquIYpT3ZGvnv9fpbOks8YNAIFbYeJTklExivHtsNXQHQLn0L7COqNAtLMj_Ccu5w3D5O-80sREl761Em87CQD3J3z8e69wztxu5ulJ1cWCWTh_y7XtEmt3qcKzRJCO_GiZDHEAuNG2-gG5pvYqhIrb5naYQVKG-ccXEOYkdHLNboVnvB5hrfuWUpscuMGPjR_N4XZTBUdn6nTAOzlfJIftyEgHno40itv7d1Qvz4nEDp0oyUOZ7JyHgynvPm1QneRheFXYK6QnF',
-    alt: 'Expertly painted miniature wargaming figure on a detailed scenic base under studio lights'
+    alt: 'Expertly painted miniature wargaming figure on a detailed scenic base under studio lights',
+    route: '/pillars/modelismo'
   }
 ]
 </script>

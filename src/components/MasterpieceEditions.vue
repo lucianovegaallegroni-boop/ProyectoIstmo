@@ -25,7 +25,7 @@
             </div>
             <span class="product-card__price">{{ product.price }}</span>
           </div>
-          <button class="product-card__btn" :id="`add-vault-${product.slug}`">
+          <button @click="handleAddToCart(product)" class="product-card__btn" :id="`add-vault-${product.slug}`">
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
             Add to Vault
           </button>
@@ -36,6 +36,19 @@
 </template>
 
 <script setup>
+import { useCart } from '../composables/useCart'
+
+const { addToCart } = useCart()
+
+const handleAddToCart = (product) => {
+  const price = parseFloat(product.price.replace('$', '').replace(',', ''))
+  addToCart({
+    ...product,
+    sku: `VAULT-${product.slug}`,
+    price: price
+  })
+}
+
 const products = [
   {
     name: 'The Emerald Drake Replica',

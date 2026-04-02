@@ -56,7 +56,7 @@ const products = ref([
   {
     name: 'Azure Citadel',
     category: 'Strategic Engine Building',
-    price: '$89.00',
+    price: 89.00,
     badge: 'Artisan Edition',
     image: '/pillars/tcg_card.png',
     alt: 'Close-up of a high-end complex board game'
@@ -64,7 +64,7 @@ const products = ref([
   {
     name: 'The Gilded Deck',
     category: 'Tactical Card Game',
-    price: '$34.99',
+    price: 34.99,
     badge: 'Strategy Master',
     image: '/pillars/tcg_card.png',
     alt: 'Premium textured playing cards'
@@ -72,7 +72,7 @@ const products = ref([
   {
     name: 'Dune Stalker',
     category: 'Collectible Miniatures',
-    price: '$45.00',
+    price: 45.00,
     badge: 'Strategy Master',
     image: '/pillars/tcg_card.png',
     alt: 'Finely painted fantasy miniature figure'
@@ -80,7 +80,7 @@ const products = ref([
   {
     name: 'Obsidian Reach',
     category: 'Cooperative Adventure',
-    price: '$110.00',
+    price: 110.00,
     badge: '',
     image: '/pillars/tcg_card.png',
     alt: 'Isometric view of a complex dungeon crawler'
@@ -88,7 +88,7 @@ const products = ref([
   {
     name: 'Eldritch Lore',
     category: 'Roleplaying Supplement',
-    price: '$59.95',
+    price: 59.95,
     badge: 'Artisan Edition',
     image: '/pillars/tcg_card.png',
     alt: 'Colorful polyhedral dice scattered across parchment'
@@ -96,7 +96,7 @@ const products = ref([
   {
     name: 'Vector Prime',
     category: 'Abstract Strategy',
-    price: '$42.00',
+    price: 42.00,
     badge: '',
     image: '/pillars/tcg_card.png',
     alt: 'Sleek modern minimalist board game box'
